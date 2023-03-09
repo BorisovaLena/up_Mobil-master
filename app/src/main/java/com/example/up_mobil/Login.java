@@ -19,4 +19,10 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, Register.class);
         startActivity(intent);
     }
+
+    public void onClickMain(View v)
+    {
+        Intent intent = new Intent(this, main_page.class);
+        startActivity(intent);
+    }
 }

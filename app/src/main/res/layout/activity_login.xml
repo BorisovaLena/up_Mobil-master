@@ -92,6 +92,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
+            android:onClick="onClickMain"
             android:text="Sign in"
             android:textAllCaps="false"
             android:textColor="@color/white"
