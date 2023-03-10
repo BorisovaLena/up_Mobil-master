@@ -56,7 +56,8 @@ public class AdapterQoute extends BaseAdapter {
         return v;
     }
 
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+    public static class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        @SuppressLint("StaticFieldLeak")
         ImageView bmImage;
 
         public DownloadImageTask(ImageView bmImage) {
