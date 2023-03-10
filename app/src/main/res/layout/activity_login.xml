@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/Email"
             android:layout_width="350dp"
             android:layout_height="45dp"
             android:layout_marginTop="90dp"
@@ -68,7 +68,7 @@
             tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/editTextEmail2"
+            android:id="@+id/Password"
             android:layout_width="350dp"
             android:layout_height="45dp"
             android:layout_marginTop="10dp"
@@ -84,7 +84,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.444"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+            app:layout_constraintTop_toBottomOf="@+id/Email"
             app:layout_constraintWidth_default="percent"
             app:layout_constraintWidth_percent="0.85"
             tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
@@ -95,14 +95,14 @@
             android:layout_height="55dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
-            android:onClick="onClickMain"
+            android:onClick="nextMain"
             android:text="Sign in"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEmail2" />
+            app:layout_constraintTop_toBottomOf="@+id/Password" />
 
         <TextView
             android:id="@+id/textView8"
@@ -126,6 +126,7 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20dp"
+            android:onClick="nextMain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
