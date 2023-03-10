@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,6 +23,9 @@ public class Login extends AppCompatActivity {
 
     public static MaskUsers User;
     EditText etEmail, etPassword;
+    SharedPreferences sPref;
+    final static String EmailUser = "Email";
+    final static String PasswordUser = "Password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         etEmail = findViewById(R.id.Email);
         etPassword = findViewById(R.id.Password);
+        getData();
     }
 
     public void onClickRegister(View v)
@@ -81,6 +86,7 @@ public class Login extends AppCompatActivity {
                 {
                     if(response.body().getToken() != null)
                     {
+                        saveData();
                         User = response.body();
                         Intent intent = new Intent(Login.this, main_page.class);
                         Bundle b = new Bundle();
@@ -94,5 +100,23 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(Login.this, "Ошибка:" + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void getData()
+    {
+        sPref=getPreferences(MODE_PRIVATE);
+        String emailUser=sPref.getString(EmailUser,"");
+        String passwordUser=sPref.getString(PasswordUser,"");
+        etEmail.setText(emailUser);
+        etPassword.setText(passwordUser);
+    }
+
+    public  void saveData()
+    {
+        sPref=getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed=sPref.edit();
+        ed.putString(EmailUser,etEmail.getText().toString());
+        ed.putString(PasswordUser,etPassword.getText().toString());
+        ed.commit();
     }
 }
