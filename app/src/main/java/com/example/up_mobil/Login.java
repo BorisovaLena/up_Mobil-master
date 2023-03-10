@@ -8,6 +8,9 @@ import android.view.View;
 
 public class Login extends AppCompatActivity {
 
+    public static MaskUsers User;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
