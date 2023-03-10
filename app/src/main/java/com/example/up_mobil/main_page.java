@@ -62,7 +62,6 @@ public class main_page extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-
         outState.putString(userVariableKey, "fgfggf");
         super.onSaveInstanceState(outState);
     }
@@ -154,10 +153,8 @@ public class main_page extends AppCompatActivity {
             {
                 listF.clear();
                 AdapterF.notifyDataSetChanged();
-
                 JSONObject object = new JSONObject(s);
                 JSONArray tempArray  = object.getJSONArray("data");
-
                 for (int i = 0;i<tempArray.length();i++)
                 {
                     JSONObject productJson = tempArray.getJSONObject(i);
