@@ -3,6 +3,7 @@ package com.example.up_mobil;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,11 +22,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Login extends AppCompatActivity {
 
-    public static MaskUsers User;
     EditText etEmail, etPassword;
     SharedPreferences sPref;
-    final static String EmailUser = "Email";
-    final static String PasswordUser = "Password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +31,13 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         etEmail = findViewById(R.id.Email);
         etPassword = findViewById(R.id.Password);
-        getData();
+
+        SharedPreferences prefs = this.getSharedPreferences("Date", Context.MODE_PRIVATE);
+        if(prefs != null)
+        {
+            etEmail.setText(prefs.getString("Email", ""));
+            etPassword.requestFocus();
+        }
     }
 
     public void onClickRegister(View v)
@@ -86,8 +90,12 @@ public class Login extends AppCompatActivity {
                 {
                     if(response.body().getToken() != null)
                     {
-                        saveData();
-                        User = response.body();
+                        SharedPreferences prefs = getSharedPreferences( "Date", Context.MODE_PRIVATE);
+                        prefs.edit().putString("Email", "" + email).apply();
+                        prefs.edit().putString("image", "" + response.body().getAvatar()).apply();
+                        prefs.edit().putString("Name", "" + response.body().getNickName()).apply();
+                        Onboarding.image = response.body().getAvatar();
+                        Onboarding.Name = response.body().getNickName();
                         Intent intent = new Intent(Login.this, main_page.class);
                         Bundle b = new Bundle();
                         intent.putExtras(b);
@@ -102,21 +110,4 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void getData()
-    {
-        sPref=getPreferences(MODE_PRIVATE);
-        String emailUser=sPref.getString(EmailUser,"");
-        String passwordUser=sPref.getString(PasswordUser,"");
-        etEmail.setText(emailUser);
-        etPassword.setText(passwordUser);
-    }
-
-    public  void saveData()
-    {
-        sPref=getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor ed=sPref.edit();
-        ed.putString(EmailUser,etEmail.getText().toString());
-        ed.putString(PasswordUser,etPassword.getText().toString());
-        ed.commit();
-    }
 }

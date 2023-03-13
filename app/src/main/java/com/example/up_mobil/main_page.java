@@ -54,23 +54,12 @@ public class main_page extends AppCompatActivity {
         new GetFeeling().execute();
 
         image = findViewById(R.id.ivProfile);
-        new AdapterQoute.DownloadImageTask((ImageView) image).execute(Login.User.getAvatar());
+        new AdapterQoute.DownloadImageTask((ImageView) image).execute(Onboarding.image);
 
         nameUser = findViewById(R.id.textView9);
-        nameUser.setText(nameUser.getText().toString() + Login.User.getNickName() + "!");
+        nameUser.setText(nameUser.getText().toString() + Onboarding.Name + "!");
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putString(userVariableKey, "fgfggf");
-        super.onSaveInstanceState(outState);
-    }
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        String str = savedInstanceState.getString(userVariableKey);
-        nameUser.setText(str);
-    }
 
     private class GetQuotes extends AsyncTask<Void, Void, String> {
 
