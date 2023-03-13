@@ -176,4 +176,10 @@ public class main_page extends AppCompatActivity {
         Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
     }
+
+    public void onClickListen(View v)
+    {
+        Intent intent = new Intent(this, Listen.class);
+        startActivity(intent);
+    }
 }
