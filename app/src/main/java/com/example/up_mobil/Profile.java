@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 
 public class Profile extends AppCompatActivity {
 
@@ -39,6 +40,7 @@ public class Profile extends AppCompatActivity {
         Name = findViewById(R.id.textView13);
         Name.setText(Onboarding.Name);
         new AdapterQoute.DownloadImageTask((ImageView) image).execute(Onboarding.image);
+
     }
 
     public void onClickMain(View v)
@@ -50,6 +52,12 @@ public class Profile extends AppCompatActivity {
     public void onClickMenu(View v)
     {
         Intent intent = new Intent(this, Menu.class);
+        startActivity(intent);
+    }
+
+    public void onClickListen(View v)
+    {
+        Intent intent = new Intent(this, Listen.class);
         startActivity(intent);
     }
 

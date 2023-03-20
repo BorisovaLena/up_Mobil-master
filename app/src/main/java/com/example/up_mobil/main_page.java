@@ -89,10 +89,8 @@ public class main_page extends AppCompatActivity {
             {
                 listQ.clear();
                 AdapterQ.notifyDataSetInvalidated();
-
                 JSONObject object = new JSONObject(s);
                 JSONArray tempArray  = object.getJSONArray("data");
-
                 for (int i = 0;i<tempArray.length();i++)
                 {
                     JSONObject productJson = tempArray.getJSONObject(i);
