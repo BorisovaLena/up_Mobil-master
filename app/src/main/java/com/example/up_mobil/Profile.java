@@ -63,6 +63,10 @@ public class Profile extends AppCompatActivity {
                 {
                     addImage();
                 }
+                else
+                {
+                    startActivity(new Intent(Profile.this, Photo.class));
+                }
 
             }
         });
