@@ -56,8 +56,8 @@ public class Profile extends AppCompatActivity {
     public void onClickLogin(View v)
     {
         SharedPreferences prefs = getSharedPreferences( "Date", Context.MODE_PRIVATE);
-        prefs.edit().putString("Avatar", "").apply();
-        prefs.edit().putString("NickName", "").apply();
+        prefs.edit().putString("image", "").apply();
+        prefs.edit().putString("Name", "").apply();
 
         startActivity(new Intent(this, Login.class));
     }

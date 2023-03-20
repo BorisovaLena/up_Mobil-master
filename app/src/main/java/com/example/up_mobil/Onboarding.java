@@ -21,7 +21,7 @@ public class Onboarding extends AppCompatActivity {
                 "Date", Context.MODE_PRIVATE);
         if(prefs != null)
         {
-            if(!prefs.getString("NickName", "").equals(""))
+            if(!prefs.getString("Name", "").equals(""))
             {
                 image = prefs.getString("image", "");
                 Name = prefs.getString("Name", "");

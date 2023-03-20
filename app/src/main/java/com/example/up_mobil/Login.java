@@ -36,7 +36,6 @@ public class Login extends AppCompatActivity {
         if(prefs != null)
         {
             etEmail.setText(prefs.getString("Email", ""));
-            etPassword.requestFocus();
         }
     }
 
@@ -105,7 +104,7 @@ public class Login extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<MaskUsers> call, Throwable t) {
-                Toast.makeText(Login.this, "Ошибка:" + t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this, "Ошибка!!!", Toast.LENGTH_LONG).show();
             }
         });
     }
